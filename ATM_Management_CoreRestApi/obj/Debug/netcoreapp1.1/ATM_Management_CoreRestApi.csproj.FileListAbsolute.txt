@@ -1,0 +1,10 @@
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\bin\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.deps.json
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\bin\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.runtimeconfig.json
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\bin\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.runtimeconfig.dev.json
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\bin\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.dll
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\bin\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.pdb
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\obj\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.csproj.CoreCompileInputs.cache
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\obj\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.AssemblyInfo.cs
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\obj\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.dll
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\obj\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.pdb
+C:\Users\la185067\Projects\ATM_Management_CoreRestApi\ATM_Management_CoreRestApi\obj\Debug\netcoreapp1.1\ATM_Management_CoreRestApi.csprojResolveAssemblyReference.cache
