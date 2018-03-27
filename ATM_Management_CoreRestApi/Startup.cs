@@ -12,6 +12,11 @@ using ATM_Management_CoreRestApi.Data.Repository;
 using ATM_Management_CoreRestApi.Data.Interface;
 using Swashbuckle.AspNetCore.Swagger;
 using ATM_Management_CoreRestApi.Data.Model;
+using Microsoft.AspNetCore.Identity;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace ATM_Management_CoreRestApi
 {
@@ -35,11 +40,16 @@ namespace ATM_Management_CoreRestApi
             // Add framework services.
             services.AddMvc();
 
-      
+          // services.AddDbContext<ApplicationDbContext>();
+
             services.AddEntityFrameworkNpgsql().AddDbContext<AtmManagmentContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("AtmConnection")));
 
             services.AddTransient<ITerminalRepository, TerminalRepository>();
+
+            
+
+
 
             services.AddSwaggerGen(c =>
             {
@@ -48,14 +58,19 @@ namespace ATM_Management_CoreRestApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+           // loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            //loggerFactory.AddDebug();
 
             app.UseMvc();
 
             app.UseSwagger();
+
+
+            // ===== Create tables ======
+           // dbContext.Database.EnsureCreated();
+
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>

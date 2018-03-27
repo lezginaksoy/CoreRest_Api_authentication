@@ -1,0 +1,10 @@
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\bin\Debug\netcoreapp2.0\Identity_WebApi_Jwt.deps.json
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\bin\Debug\netcoreapp2.0\Identity_WebApi_Jwt.runtimeconfig.json
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\bin\Debug\netcoreapp2.0\Identity_WebApi_Jwt.runtimeconfig.dev.json
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\bin\Debug\netcoreapp2.0\Identity_WebApi_Jwt.dll
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\bin\Debug\netcoreapp2.0\Identity_WebApi_Jwt.pdb
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\Debug\netcoreapp2.0\Identity_WebApi_Jwt.csproj.CoreCompileInputs.cache
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\Debug\netcoreapp2.0\Identity_WebApi_Jwt.AssemblyInfoInputs.cache
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\Debug\netcoreapp2.0\Identity_WebApi_Jwt.AssemblyInfo.cs
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\Debug\netcoreapp2.0\Identity_WebApi_Jwt.dll
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\Debug\netcoreapp2.0\Identity_WebApi_Jwt.pdb
