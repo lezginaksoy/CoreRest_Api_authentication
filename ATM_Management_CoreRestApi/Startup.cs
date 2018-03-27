@@ -40,15 +40,19 @@ namespace ATM_Management_CoreRestApi
             // Add framework services.
             services.AddMvc();
 
-          // services.AddDbContext<ApplicationDbContext>();
-
             services.AddEntityFrameworkNpgsql().AddDbContext<AtmManagmentContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("AtmConnection")));
 
             services.AddTransient<ITerminalRepository, TerminalRepository>();
 
-            
-
+             // it is a Bearer token
+            services.AddAuthentication("Bearer") 
+              .AddIdentityServerAuthentication(options =>
+              {
+                  options.Authority = "http://localhost:52233"; //Identity Server URL
+                    options.RequireHttpsMetadata = false; // make it false since we are not using https
+                    options.ApiName = "token"; //api name which should be registered in IdentityServer
+                });
 
 
             services.AddSwaggerGen(c =>
@@ -59,18 +63,11 @@ namespace ATM_Management_CoreRestApi
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-           // loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            //loggerFactory.AddDebug();
-
+        {          
             app.UseMvc();
 
             app.UseSwagger();
-
-
-            // ===== Create tables ======
-           // dbContext.Database.EnsureCreated();
-
+            app.UseAuthentication(); // add the Authentication middleware
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>

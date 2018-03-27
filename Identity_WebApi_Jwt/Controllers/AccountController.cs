@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Identity_WebApi_Jwt.Middleware;
 using Identity_WebApi_Jwt.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -66,28 +67,39 @@ namespace Identity_WebApi_Jwt.Controllers
 
         private async Task<object> GenerateJwtToken(string email, IdentityUser user)
         {
-           
 
-            var claims = new List<Claim>
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id)
-            };
+            var Token = new JsonWebTokenBuilder()
+                                .AddSecurityKey(JsonWebTokenSecurityKey.Create(_configuration["JWebtokenKey"].ToString()))
+                                .AddSubject(user.UserName.ToString())
+                                .AddIssuer(_configuration["JWebtokenIssuer"].ToString())
+                                .AddAudience(_configuration["JWebtokenIssuer"].ToString())
+                                .AddClaim(user.UserName,user.Id)
+                                .AddExpiry(10)
+                                .Build();
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWebtokenKey"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["JWebTokenExpireDays"]));
 
-            var token = new JwtSecurityToken(
-                _configuration["JWebtokenIssuer"],
-                _configuration["JWebtokenIssuer"],
-                claims,
-                expires: expires,
-                signingCredentials: creds
-            );
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+
+            //var claims = new List<Claim>
+            //{
+            //    new Claim(JwtRegisteredClaimNames.Sub, email),
+            //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            //    new Claim(ClaimTypes.NameIdentifier, user.Id)
+            //};
+
+            //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWebtokenKey"]));
+            //var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            //var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["JWebTokenExpireDays"]));
+
+            //var token = new JwtSecurityToken(
+            //    _configuration["JWebtokenIssuer"],
+            //    _configuration["JWebtokenIssuer"],
+            //    claims,
+            //    expires: expires,
+            //    signingCredentials: creds
+            //);
+
+            return new JwtSecurityTokenHandler().WriteToken(Token.PublicToken);
         }
 
 

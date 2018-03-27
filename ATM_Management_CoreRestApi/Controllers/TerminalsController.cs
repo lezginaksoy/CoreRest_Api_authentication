@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using ATM_Management_CoreRestApi.Data.Interface;
 using ATM_Management_CoreRestApi.Data.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ATM_Management_CoreRestApi.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Terminals")]
+    [Route("api/Terminals")]  
     public class TerminalsController : Controller
     {
 
