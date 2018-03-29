@@ -29,18 +29,6 @@ namespace ATM_Management_CoreRestApi
         .Build();
 
 
-        //public static IWebHost BuildWebHost(string[] args) =>
-        // WebHost.CreateDefaultBuilder(args)
-        // .UseStartup<Startup>()
-        //     .ConfigureAppConfiguration((hostContext, config) =>
-        //     {
-        //            // delete all default configuration providers
-        //            //config.SetBasePath(AppDomain.CurrentDomain.BaseDirectory);
-        //            config.Sources.Clear();
-        //         config.AddJsonFile("appsettings.json", optional: true);
-        //     })
-        // .Build();
-
 
     }
 }

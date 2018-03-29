@@ -8,3 +8,4 @@ C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\De
 C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\Debug\netcoreapp2.0\Identity_WebApi_Jwt.AssemblyInfo.cs
 C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\Debug\netcoreapp2.0\Identity_WebApi_Jwt.dll
 C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\Debug\netcoreapp2.0\Identity_WebApi_Jwt.pdb
+C:\Users\la185067\Projects\CoreRestApi_Authentication\Identity_WebApi_Jwt\obj\Debug\netcoreapp2.0\Identity_WebApi_Jwt.csprojResolveAssemblyReference.cache

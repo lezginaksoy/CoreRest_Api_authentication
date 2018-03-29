@@ -39,19 +39,32 @@ namespace ATM_Management_CoreRestApi
         {
             // Add framework services.
             services.AddMvc();
-
+            
             services.AddEntityFrameworkNpgsql().AddDbContext<AtmManagmentContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("AtmConnection")));
-
             services.AddTransient<ITerminalRepository, TerminalRepository>();
 
-             // it is a Bearer token
-            services.AddAuthentication("Bearer") 
-              .AddIdentityServerAuthentication(options =>
-              {
-                  options.Authority = "http://localhost:52233"; //Identity Server URL
-                    options.RequireHttpsMetadata = false; // make it false since we are not using https
-                    options.ApiName = "token"; //api name which should be registered in IdentityServer
+
+            //// ===== Add Jwt Authentication ========
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            })
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.RequireHttpsMetadata = false;
+                    cfg.SaveToken = true;
+                    cfg.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = Configuration["JwebtokenIssuer"],
+                        ValidAudience = Configuration["JwebtokenIssuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwebtokenKey"])),
+                        ClockSkew = TimeSpan.Zero // remove delay of token when expire
+                    };
                 });
 
 
@@ -68,6 +81,7 @@ namespace ATM_Management_CoreRestApi
 
             app.UseSwagger();
             app.UseAuthentication(); // add the Authentication middleware
+                          
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>

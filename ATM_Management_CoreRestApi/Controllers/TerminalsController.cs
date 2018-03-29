@@ -11,7 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace ATM_Management_CoreRestApi.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Terminals")]  
+    [Route("api/Terminals")]
+    [Authorize]
     public class TerminalsController : Controller
     {
 
