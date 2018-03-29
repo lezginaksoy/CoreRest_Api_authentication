@@ -2,16 +2,15 @@
 
 Asp.NET Core 2.0 WebApi JWT Authentication with Identity & postgresql
 
-
 -Bearer Token Authentication 
 
-What’s in a JWT?
+# What’s in a JWT?
 
 It’s useful to understand the basic structure of a JSON Web Token.
 
 It consists of three parts, separated by a .
 
-HEADER.PAYLOAD.SIGNATURE
+# HEADER.PAYLOAD.SIGNATURE
 
 The header indicates that the token is JWT and which hashing algorithm has been used when creating it. This is Base64Url encoded.
 
